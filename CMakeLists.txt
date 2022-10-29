@@ -3,7 +3,8 @@ project(velodynescan_to_pc2)
 
 add_compile_options(-std=c++17 -O2 -g -Wall)
 
-find_package(catkin REQUIRED
+find_package(
+    catkin REQUIRED
     roscpp
     rosbag
     velodyne_msgs
@@ -20,6 +21,7 @@ find_package(velodyne_pointcloud)
 ################################################
 
 catkin_package(
+    CATKIN_DEPENDS velodyne_pointcloud
 )
 
 ###########
