@@ -1,0 +1,13 @@
+<launch>
+	<!-- rviz -->
+	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find velodynescan_to_pc2)/rviz_config/velodyne.rviz"/>
+
+	<!-- main -->
+	<node pkg="velodynescan_to_pc2" type="velodynescan_to_pc2" name="velodynescan_to_pc2" output="screen">
+		<param name="load_rosbag_path" type="string" value="$(env HOME)/rosbag/sq2_velodyne/dkan_outdoor/2018-10-31-08-37-11.bag"/>
+		<param name="calib_path" type="string" value="$(find velodyne_pointcloud)/params/32db.yaml"/>
+		<param name="min_range" type="double" value="0.4"/>
+		<param name="max_range" type="double" value="130.0"/>
+		<!-- <param name="debug_hz" type="double" value="100.0"/> -->
+	</node>
+</launch>
