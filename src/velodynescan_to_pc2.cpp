@@ -104,7 +104,7 @@ void VelodyneScansToPc2::convert()
     while(view_itr != view.end()){
         velodyne_msgs::VelodyneScanConstPtr v_scan_ptr = view_itr->instantiate<velodyne_msgs::VelodyneScan>();
         pcl::PointCloud<velodyne_pointcloud::PointXYZIR> v_pc;
-        for(velodyne_msgs::VelodynePacket v_packet : v_scan_ptr->packets){
+        for(const velodyne_msgs::VelodynePacket& v_packet : v_scan_ptr->packets){
             pcl::PointCloud<velodyne_pointcloud::PointXYZIR> v_tmp_pc;
             v_rawdata.unpack(v_packet, v_tmp_pc);
             v_pc += v_tmp_pc;
